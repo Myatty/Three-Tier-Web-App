@@ -45,4 +45,9 @@ app.get('/started', (req, res) => {
 app.use("/api/tasks", tasks);
 
 const port = process.env.PORT || 3500;
-app.listen(port, () => console.log(`Listening on port ${port}...`));
+if (require.main === module) {
+    app.listen(port, () => console.log(`Listening on port ${port}...`));
+}
+
+module.exports = app;
+
